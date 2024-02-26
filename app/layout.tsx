@@ -26,7 +26,7 @@ export default function RootLayout({
                     inter.className
                 )}
             >
-                <main className="mx-auto md:max-w-screen-sm px-10 pt-24">
+                <main className="mx-auto md:max-w-screen-sm px-10 py-24">
                     <Providers>{children}</Providers>
                 </main>
             </body>

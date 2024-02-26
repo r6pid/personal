@@ -4,8 +4,12 @@ import Image from 'next/image'
 import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
 import { FiLoader } from 'react-icons/fi'
+import { useState } from 'react'
 
 export default function Home() {
+    const [copiedText, setCopiedText] = useState<String | null>(
+        '@rapidl - discord.com'
+    )
     const fetchData = async () => {
         const res = await fetch('https://api.github.com/users/r6pid/repos')
         const data = await res.json()
@@ -15,6 +19,13 @@ export default function Home() {
         queryKey: ['repoData'],
         queryFn: fetchData,
     })
+    const handleCopy = (e: any) => {
+        setCopiedText('copied')
+        navigator.clipboard.writeText('rapidl')
+        setTimeout(() => {
+            setCopiedText('@rapidl - discord.com')
+        }, 3000)
+    }
     return (
         <div className="w-full flex flex-col">
             <div>
@@ -130,6 +141,30 @@ export default function Home() {
                             </li>
                         ))}
                     </ol>
+                </div>
+                <div className="flex flex-col mt-10 w-fit">
+                    <p className="text-base">Contact Me!</p>
+                    <Link
+                        href="https://x.com/orielmn"
+                        className="font-semibold text-neutral-400 text-[0.9rem] mt-1 hover:underline"
+                    >
+                        /orielmn - x.com
+                    </Link>
+                    <p
+                        onClick={(e) => handleCopy(e)}
+                        className="font-semibold text-neutral-400 text-[0.9rem] mt-1 hover:underline cursor-pointer"
+                    >
+                        {copiedText}
+                    </p>
+                    <Link
+                        href="https://github.com/r6pid"
+                        className="font-semibold text-neutral-400 text-[0.9rem] mt-1 hover:underline"
+                    >
+                        /r6pid - github.com
+                    </Link>
+                    <p className="text-xs mt-4 text-neutral-500 font-semibold">
+                        ... more coming soon!
+                    </p>
                 </div>
             </div>
         </div>
