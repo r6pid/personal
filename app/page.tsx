@@ -80,9 +80,9 @@ export default function Home() {
                             </div>
                         )}
                         {data?.map((repo: any) => (
-                            <li key={repo.id} className="mb-3 w-full flex">
+                            <li key={repo.id} className="min-h-24 w-full flex">
                                 <div className="flex rounded-[0.375rem] border-[0.0625rem] border-neutral-800 w-full p-3">
-                                    <div className="flex w-full flex-col">
+                                    <div className="flex w-full flex-col justify-around">
                                         <div className="flex w-full relative">
                                             <div className="flex flex-row items-center justify-center">
                                                 <svg
