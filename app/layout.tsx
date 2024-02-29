@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Providers from '@/app/providers'
+import { Analytics } from '@vercel/analytics/react'
 
 const inter = Inter({ weight: '400', subsets: ['latin'] })
 
@@ -29,6 +30,7 @@ export default function RootLayout({
                 <main className="mx-auto md:max-w-screen-sm px-10 py-24">
                     <Providers>{children}</Providers>
                 </main>
+                <Analytics />
             </body>
         </html>
     )
